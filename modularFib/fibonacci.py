@@ -12,6 +12,7 @@ while True: #infinite loop for error handling
             print("Please enter a positive integer.")
     except:    #handles other exception (x !< 0, x !> 0)
           print("Please enter a positive integer.")
+
 fibonacci= []
 for fib in range(terms): #first two terms are given in fibonacci
     if fib == 0:

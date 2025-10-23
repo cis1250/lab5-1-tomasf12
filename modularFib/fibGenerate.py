@@ -1,4 +1,3 @@
-from modularFib import terms as ts
 
 def fibGenerate(terms):
     """Generates Fibonacci Sequence from verified int"""
@@ -10,3 +9,5 @@ def fibGenerate(terms):
             fibonacci.append(fib)
         else:
             fibonacci.append((fibonacci[-1]) + (fibonacci[-2]))
+    return fibonacci
+        

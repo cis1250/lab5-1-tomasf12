@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 
 # Word frequency exercise
 # TODO: (Read detailed instructions in the Readme file)
@@ -25,26 +24,44 @@ def is_sentence(text):
 
     return True
 
-user_sentence = input("Enter a sentence: ")
-
-while (is_sentence(user_sentence) == False):
-    print("This does not meet the criteria for a sentence.")
-    user_sentence = input("Enter a sentence: ")
+def get_sentence():
+    """Recieves and validates user input"""
     
-unique = []
-frequencies = []
+    user_sentence = input("Enter a sentence: ")
 
-splitted_sentence = user_sentence.split()
+    while (is_sentence(user_sentence) == False):
+        print("This does not meet the criteria for a sentence.")
+        user_sentence = input("Enter a sentence: ")
+    return user_sentence
+    
+def calculate_frequencies(user_sentence):
+    """Calculates user frequencies"""
+    unique = []
+    frequencies = []
 
-for word in splitted_sentence:
-    clean_word = re.sub(r'[^\w]', '', word.lower()) #checks for clean words
-    if clean_word in unique:
-        i = unique.index(clean_word) #assigns value to the index of duplicate word
-        frequencies[i] += 1  #incerements that assigned index
-    else:
-        unique.append(clean_word)
-        frequencies.append(1)
+    splitted_sentence = user_sentence.split()
 
-#used copilot
-for i in range(len(unique)):
-    print(f"{unique[i]}: {frequencies[i]}")
+    for word in splitted_sentence:
+        clean_word = re.sub(r'[^\w]', '', word.lower()) #checks for clean words
+        if clean_word in unique:
+            i = unique.index(clean_word) #assigns value to the index of duplicate word
+            frequencies[i] += 1  #incerements that assigned index
+        else:
+            unique.append(clean_word)
+            frequencies.append(1)
+    return frequencies, unique
+
+def print_frequencies(frequencies, unique):
+    """Displays results"""
+    
+    for i in range(len(unique)):
+        print(f"{unique[i]}: {frequencies[i]}")
+
+
+def main():
+    """controls program flow"""
+    sentence = get_sentence()
+    (frequencies, unique) = calculate_frequencies(sentence)
+    print_frequencies(frequencies, unique)
+
+main()

@@ -24,3 +24,27 @@ def is_sentence(text):
         return False
 
     return True
+
+user_sentence = input("Enter a sentence: ")
+
+while (is_sentence(user_sentence) == False):
+    print("This does not meet the criteria for a sentence.")
+    user_sentence = input("Enter a sentence: ")
+    
+unique = []
+frequencies = []
+
+splitted_sentence = user_sentence.split()
+
+for word in splitted_sentence:
+    clean_word = re.sub(r'[^\w]', '', word.lower()) #checks for clean words
+    if clean_word in unique:
+        i = unique.index(clean_word) #assigns value to the index of duplicate word
+        frequencies[i] += 1  #incerements that assigned index
+    else:
+        unique.append(clean_word)
+        frequencies.append(1)
+
+#used copilot
+for i in range(len(unique)):
+    print(f"{unique[i]}: {frequencies[i]}")

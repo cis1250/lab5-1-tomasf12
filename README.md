@@ -27,9 +27,9 @@ Unlike the previous version of this lab, you will structure your program using *
    - Use a **for loop** to generate the sequence up to the specified number of terms.
    - Return the sequence as a list.
 
-5. **Print the result**
+5. **Print the result** Fibonacci.py is the function I am using to run all 3 other functions and output the sequence.
    - Display the Fibonacci sequence in a readable format.
-
+      
 ---
 # Part 2: Word Frequency with functions
 
